@@ -68,12 +68,17 @@ sub spellcheck {shift->{'spellcheck'};}
 # Preloaded methods go here.
 
 1;
-__END__
-# Below is stub documentation for your module. You'd better edit it!
+
+
+=pod
 
 =head1 NAME
 
-WWW::WolframAlpha::Warnings - Perl object returned via $wa->(?:validate|)query->warnings
+WWW::WolframAlpha::Warnings
+
+=head1 VERSION
+
+version 1.10
 
 =head1 SYNOPSIS
 
@@ -86,9 +91,7 @@ WWW::WolframAlpha::Warnings - Perl object returned via $wa->(?:validate|)query->
         }
     }
 
-
 =head1 DESCRIPTION
-
 
 =head2 ATTRIBUTES
 
@@ -96,16 +99,17 @@ $warnings->count
 
 $warnings->delimiters
 
-
 =head2 SECTOINS
 
 $warnings->spellcheck - array of L<WWW::WolframAlpha::Spellcheck> elements
-
 
 =head2 EXPORT
 
 None by default.
 
+=head1 NAME
+
+WWW::WolframAlpha::Warnings - Perl object returned via $wa->(?:validate|)query->warnings
 
 =head1 SEE ALSO
 
@@ -123,5 +127,20 @@ This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.8 or,
 at your option, any later version of Perl 5 you may have available.
 
+=head1 AUTHOR
+
+Gabriel Weinberg <yegg@alum.mit.edu>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2009 by Gabriel Weinberg.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
+
+
+__END__
+# Below is stub documentation for your module. You'd better edit it!
+

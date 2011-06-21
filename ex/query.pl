@@ -12,13 +12,20 @@ my $wa = WWW::WolframAlpha->new (
 
 # Send any inputs paramters in input hash (unescaped).
 my $query = $wa->query(
-    'input' => 'pi',
-    'scantimeout' => 3,
+#    'input' => '5 km to m',
+#    'input' => 'age of clinton',
+#    'input' => '5:30pm cst in edt',
+    'input' => '1-1',
+#    'input' => 'sinh(0)',
 #    'format' => 'sound',
 #    'format' => 'html',
 #    'podstate' => 'More digits',
 #    'async' => 'true',
 #    'assumption' => '*F.DopplerShift.vs-_6.5+m%2Fs',
+    'scantimeout' => 3,
+    'podtimeout' => 3,
+    'format' => 'plaintext,image',
+#    'podtitle' => 'Result',
     );
 
 
@@ -50,7 +57,7 @@ if ($query->success) {
 	    print "Numsubpods: ", $pod->numsubpods, "\n" if $pod->numsubpods;
 	    foreach my $subpod (@{$pod->subpods}) {
 		print "  Subpod\n";
-		print '    plaintext: ', $subpod->plaintext, "\n" if $subpod->plaintext;
+		print '    plaintext: ', $subpod->plaintext, "\n" if defined $subpod->plaintext;
 		print '    title: ', $subpod->title, "\n" if $subpod->title;
 		print '    minput: ', $subpod->minput, "\n" if $subpod->minput;
 		print '    moutput: ', $subpod->moutput, "\n" if $subpod->moutput;

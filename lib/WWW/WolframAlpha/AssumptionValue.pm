@@ -61,12 +61,17 @@ sub valid {shift->{'valid'};}
 # Preloaded methods go here.
 
 1;
-__END__
-# Below is stub documentation for your module. You'd better edit it!
+
+
+=pod
 
 =head1 NAME
 
-WWW::WolframAlpha::AssumptionValue - Perl objects returned via $assumption->value
+WWW::WolframAlpha::AssumptionValue
+
+=head1 VERSION
+
+version 1.10
 
 =head1 SYNOPSIS
 
@@ -75,9 +80,7 @@ WWW::WolframAlpha::AssumptionValue - Perl objects returned via $assumption->valu
       print '     valid: ', $value->valid, "\n" if defined $value->valid;
     }
 
-
 =head1 DESCRIPTION
-
 
 =head2 ATTRIBUTES
 
@@ -89,16 +92,17 @@ $value->input
 
 $value->valid
 
-
 =head2 EXPORT
 
 None by default.
 
+=head1 NAME
+
+WWW::WolframAlpha::AssumptionValue - Perl objects returned via $assumption->value
 
 =head1 SEE ALSO
 
 L<WWW::WolframAlpha>
-
 
 =head1 AUTHOR
 
@@ -112,5 +116,20 @@ This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.8 or,
 at your option, any later version of Perl 5 you may have available.
 
+=head1 AUTHOR
+
+Gabriel Weinberg <yegg@alum.mit.edu>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2009 by Gabriel Weinberg.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
+
+
+__END__
+# Below is stub documentation for your module. You'd better edit it!
+

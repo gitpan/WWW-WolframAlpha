@@ -88,13 +88,17 @@ sub warnings {shift->{'warnings'};}
 # Preloaded methods go here.
 
 1;
-__END__
-# Below is stub documentation for your module. You'd better edit it!
+
+
+=pod
 
 =head1 NAME
 
-WWW::WolframAlpha::ValidateQuery - Perl object returned via $wa->validatequery
+WWW::WolframAlpha::ValidateQuery
 
+=head1 VERSION
+
+version 1.10
 
 =head1 SYNOPSIS
 
@@ -107,7 +111,6 @@ if ($validatequery->success) {
           ...
  }
 
-
 =head1 DESCRIPTION
 
 =head2 SUCCESS
@@ -116,14 +119,11 @@ $validatequery->success - 0/1, tells whether it was successful or not
 
 $validatequery->error - 0 or L<WWW::WolframAlpha::Error>, tells whether there was an error or not
 
-
 =head2 ATTRIBUTES
 
 $validatequery->timing 
 
 $validatequery->parsetiming
-
-
 
 =head2 SECTOINS
 
@@ -131,14 +131,15 @@ $query->assumptions - L<WWW::WolframAlpha::Assumptions> object
 
 $query->warnings - L<WWW::WolframAlpha::Warnings> object
 
-
-
 =head2 DEBUGGING
 
 $validatequery->xml - raw XML
 
 $validatequery->xmlo - raw XML::Simple object
 
+=head1 NAME
+
+WWW::WolframAlpha::ValidateQuery - Perl object returned via $wa->validatequery
 
 =head1 SEE ALSO
 
@@ -156,5 +157,20 @@ This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.8 or,
 at your option, any later version of Perl 5 you may have available.
 
+=head1 AUTHOR
+
+Gabriel Weinberg <yegg@alum.mit.edu>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2009 by Gabriel Weinberg.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
+
+
+__END__
+# Below is stub documentation for your module. You'd better edit it!
+

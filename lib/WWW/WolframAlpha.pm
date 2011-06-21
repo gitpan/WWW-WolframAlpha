@@ -1,4 +1,7 @@
 package WWW::WolframAlpha;
+BEGIN {
+  $WWW::WolframAlpha::VERSION = '1.10';
+}
 
 use 5.008008;
 use strict;
@@ -33,13 +36,14 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
 );
 
-our $VERSION = '1.0';
+our $VERSION ||= '0.0development';
 
 my $xs = XML::Simple->new(
     'KeyAttr' => [],
     'ForceArray' => ['assumption','pod','subpod','source','value','state','info','link','statelist','unit','spellcheck','sound','didyoumean','error'],
     'ValueAttr' => [],
     'VarAttr' => [''],
+    'SuppressEmpty' => undef,
     );
 
 sub new {
@@ -132,8 +136,21 @@ sub construct_url {
 
     foreach my $param (keys %param) {
 	next if $param eq 'url';
-	$url .= '&' . $param . '=' . uri_escape_utf8($param{$param});
+
+	if ($param eq 'podtitle' && $param{$param} =~ /,/) {
+	    my @param = split(/\,/,$param{$param});
+	    SUB_PARAM: foreach my $sub_param (@param) {
+		next SUB_PARAM if !$sub_param;
+		$url .= '&' . $param . '=' . uri_escape_utf8($sub_param);
+	    }
+
+	} else {
+	    $url .= '&' . $param . '=' . uri_escape_utf8($param{$param});
+	}
     }
+
+    # For debugging.
+#    warn $url;
 
     return $url;
 }
@@ -183,12 +200,17 @@ sub errmsg {shift->{'errmsg'};}
 # Preloaded methods go here.
 
 1;
-__END__
-# Below is stub documentation for your module. You'd better edit it!
+
+
+=pod
 
 =head1 NAME
 
-WWW::WolframAlpha - Perl extension for the WolframAlpha API
+WWW::WolframAlpha
+
+=head1 VERSION
+
+version 1.10
 
 =head1 SYNOPSIS
 
@@ -238,7 +260,9 @@ For debugging, the raw XML output and the internal Perl object used (via L<XML::
 
 None by default.
 
+=head1 NAME
 
+WWW::WolframAlpha - Perl extension for the WolframAlpha API
 
 =head1 SEE ALSO
 
@@ -246,11 +270,9 @@ B<WWW::WolframAlpha> requires L<XML::Simple>, L<LWP::UserAgent>, L<URI::Escape> 
 
 http://www.wolframalpha.com/
 
-
 =head1 AUTHOR
 
 Gabriel Weinberg, E<lt>yegg@alum.mit.eduE<gt>
-
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -260,5 +282,20 @@ This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.8 or,
 at your option, any later version of Perl 5 you may have available.
 
+=head1 AUTHOR
+
+Gabriel Weinberg <yegg@alum.mit.edu>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2009 by Gabriel Weinberg.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
+
+
+__END__
+# Below is stub documentation for your module. You'd better edit it!
+

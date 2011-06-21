@@ -34,8 +34,8 @@ sub new {
     my ($title,$plaintext,$img,$minput,$moutput,$mathml);
 
     if ($xmlo) {
-	$title = $xmlo->{'title'} || undef;
-	$plaintext = $xmlo->{'plaintext'} || undef;
+	$title = $xmlo->{'title'};
+	$plaintext = $xmlo->{'plaintext'}; # could be 0
 	$img = $xmlo->{'img'} || undef;
 	$minput = $xmlo->{'minput'} || undef;
 	$moutput = $xmlo->{'moutput'} || undef;
@@ -71,12 +71,17 @@ sub mathml {shift->{'mathml'};}
 # Preloaded methods go here.
 
 1;
-__END__
-# Below is stub documentation for your module. You'd better edit it!
+
+
+=pod
 
 =head1 NAME
 
-WWW::WolframAlpha::Subpod - Perl objects accessed via $pod->subpods
+WWW::WolframAlpha::Subpod
+
+=head1 VERSION
+
+version 1.10
 
 =head1 SYNOPSIS
 
@@ -92,7 +97,6 @@ WWW::WolframAlpha::Subpod - Perl objects accessed via $pod->subpods
 
 =head1 DESCRIPTION
 
-
 =head2 ATTRIBUTES
 
 $subpod->plaintext
@@ -106,12 +110,14 @@ $subpod->moutput
 $subpod->mathml
 
 $sbupod->img
-    
 
 =head2 EXPORT
 
 None by default.
 
+=head1 NAME
+
+WWW::WolframAlpha::Subpod - Perl objects accessed via $pod->subpods
 
 =head1 SEE ALSO
 
@@ -129,5 +135,20 @@ This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.8 or,
 at your option, any later version of Perl 5 you may have available.
 
+=head1 AUTHOR
+
+Gabriel Weinberg <yegg@alum.mit.edu>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2009 by Gabriel Weinberg.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
+
+
+__END__
+# Below is stub documentation for your module. You'd better edit it!
+
